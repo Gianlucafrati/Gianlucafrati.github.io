@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gianluca Frati | Data Scientist & Machine Learning Engineer</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    <header>
+        <a href="#inicio">Gianluca Frati</a>
+        <nav>
+            <ul>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#stack">Stack</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 2. CONTENIDO PRINCIPAL -->
+    <main>
+    <!-- Sección de Bienvenida -->
+        <section id="inicio">
+            <h1>Gianluca Frati</h1>
+            <h2>Data Scientist</h2>
+            <p>Especializado en modelado predictivo y optimización cuantitativa.</p>
+            
+            <!-- Botones de Acción (CTA) -->
+            <div class="hero-botones">
+                <a href="#proyectos" class="btn btn-primary">Ver mis proyectos</a>
+                <a href="assets/Gianluca Frati.pdf" download class="btn btn-secondary">Descargar CV</a>
+            </div>
+        </section>
+
+        <!-- Sección de Proyectos -->
+        <section id="proyectos">
+            <h2>Proyectos Destacados</h2>
+
+            <div class="filtros-proyectos">
+                <button class="filtro-btn activo" data-filtro="todos">Todos</button>
+                <button class="filtro-btn" data-filtro="ml">Machine Learning / XAI</button>
+                <button class="filtro-btn" data-filtro="quant">Finanzas / Quant</button>
+                <button class="filtro-btn" data-filtro="opt">Optimización</button>
+            </div>
+
+            <div class="grid-proyectos">    
+                <!-- Proyecto 1: Churn Bancario -->
+                <article class="proyecto" data-category="ml">
+                    <h3>Predicción de Fuga de Clientes con XAI</h3>
+                    <p>
+                        Modelo predictivo para anticipar la fuga (churn) en banca minorista usando 
+                        <strong>Random Forest</strong> y explicabilidad con <strong>SHAP</strong> para interpretar las variables más influyentes.
+                    </p>
+                    <div class="tags">
+                        <span>Python</span>
+                        <span>Random Forest</span>
+                        <span>SHAP (XAI)</span>
+                        <span>Plotly</span>
+                    </div>
+                    <a href="https://github.com/Gfrati97/Prediccion-fuga-y-abandono-de-clientes-en-banca-minorista" target="_blank" rel="noopener noreferrer">
+                        GitHub &rarr;
+                    </a>
+                </article>
+
+                <!-- Proyecto 2: Trading Cuantitativo -->
+                <article class="proyecto" data-category="quant">
+                    <h3>Agente de Análisis Cuantitativo (Futuros Cripto)</h3>
+                    <p>
+                        Desarrollo de un agente de análisis cuantitativo para el par SOL/USDT en el mercado de futuros, evaluando métricas estadísticas y gestión de riesgo.
+                    </p>
+                    <div class="tags">
+                        <span>Python</span>
+                        <span>Quant Analysis</span>
+                        <span>Crypto Futures</span>
+                        <span>Series Temporales</span>
+                    </div>
+                    <a href="https://github.com/Gfrati97/Agente-trading-cuantitativo" target="_blank" rel="noopener noreferrer">
+                        GitHub &rarr;
+                    </a>
+                </article>
+
+                <!-- Proyecto 3: Optimización Energética -->
+                <article class="proyecto" data-category="opt">
+                    <h3>Optimización Lineal & Simulación Energética</h3>
+                    <p>
+                        Modelo de optimización matemática con <strong>Programación Lineal (Simplex/PuLP)</strong> y simulación estocástica para eficiencia térmica y económica residencial (CAECE).
+                    </p>
+                    <div class="tags">
+                        <span>Python</span>
+                        <span>PuLP</span>
+                        <span>Simplex</span>
+                        <span>Optimización</span>
+                    </div>
+                    <a href="https://github.com/Gfrati97/Optimizacion-consumo-energetico" target="_blank" rel="noopener noreferrer">
+                        GitHub &rarr;
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <section id="stack">
+            <h2> Stack  </h2>
+
+            <div class="stack">
+                <div class="categoria">
+                    <h3>Lenguajes de Programación</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>R</li>
+                        <li>SQL</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+                <div class="categoria">
+                    <h3>Frameworks y Librerías</h3>
+                    <ul>
+                        <li>Pandas, NumPy, SciPy</li>
+                        <li>Scikit-learn, TensorFlow, PyTorch</li>
+                        <li>Plotly, Matplotlib, Seaborn</li>
+                    </ul>
+                </div>
+                <div class="categoria">
+                    <h3>Herramientas y Plataformas</h3>
+                    <ul>
+                        <li>MongoDB Atlas (NoSQL)</li>
+                        <li>Git & GitHub</li>
+                        <li>Jupyter Notebook</li>
+                    </ul>
+                </div> 
+        </section>   
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>¿Te interesa mi perfil para tu equipo o proyecto? Hablemos</p>
+            <div class="contacto-botones">
+                <a href="mailto:gianlucafrati2@gmail.com" class="btn">
+                    Enviar Email
+                </a>
+                <a href="https://www.linkedin.com/in/gianlucafrati" target="_blank" rel="noopener noreferrer" class="btn">
+                    LinkedIn
+                </a>
+                <a href="https://github.com/Gfrati97" target="_blank" rel="noopener noreferrer" class="btn">
+                    GitHub
+                </a>
+            </div>
+        </section>
+            
+
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Gianluca Frati &middot; Data Scientist</p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

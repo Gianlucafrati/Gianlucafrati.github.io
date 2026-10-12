@@ -1,0 +1,495 @@
+*{ 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+html {
+    scroll-behavior: smooth; /* Hace que los clics en el menú se deslicen suavemente */
+}
+
+/* 2. VARIABLES DE COLOR Y FUENTES */
+:root {
+    --bg-main: #0B0F17;        /* Fondo oscuro elegante */
+    --bg-card: #111827;        /* Fondo para tarjetas de proyectos */
+    --bg-card-hover: #162032;  /* Efecto al pasar el cursor */
+    --border-color: #1F2937;   /* Bordes sutiles */
+    --text-primary: #F3F4F6;   /* Texto principal blanco suave */
+    --text-secondary: #9CA3AF; /* Texto secundario gris claro */
+    --accent: #14B8A6;         /* Verde azulado / Teal (Data Science vibe) */
+    --accent-hover: #0D9488;   /* Teal más oscuro para hover */
+    --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* 3. ESTILOS GLOBALES */
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    padding: 0 1rem;
+}
+
+/* Enlaces por defecto */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* 4. BARRA DE NAVEGACIÓN (HEADER) */
+header {
+    max-width: 1100px;
+    margin: 0 auto;                     /* Centra el header horizontalmente */
+    padding: 1.5rem 1rem;
+    display: flex;
+    justify-content: space-between;     /* Tu nombre a la izquierda, el menú a la derecha */
+    align-items: center;                /* Centrado vertical */
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Tu nombre / Logo */
+header > a {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+}
+
+/* El menú */
+header nav ul {
+    display: flex;                      /* Pone los enlaces uno al lado del otro */
+    list-style: none;                   /* Quita los puntos de la lista */
+    gap: 1.5rem;                        /* Espacio entre cada enlace */
+}
+
+header nav a {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    transition: color 0.2s ease;        /* Animación suave al pasar el mouse */
+}
+
+/* Efecto hover: cambia a verde azulado cuando pasas el cursor */
+header nav a:hover {
+    color: var(--accent);
+}
+
+/* 5. SECCIÓN DE BIENVENIDA (HERO) */
+#inicio {
+    max-width: 800px;
+    margin: 4rem auto 5rem auto;        /* Buen espacio arriba y abajo */
+    text-align: left;
+}
+
+#inicio h1 {
+    font-size: 3rem;                    /* Texto grande e impactante */
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+#inicio h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+}
+
+#inicio p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    max-width: 650px;
+}
+
+/* Botón principal */
+#inicio a {
+    display: inline-block;
+    background-color: var(--accent);
+    color: #070A0F;                     /* Texto oscuro sobre fondo claro para contraste */
+    font-weight: 600;
+    padding: 0.8rem 1.6rem;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#inicio a:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);        /* Pequeño salto hacia arriba al pasar el mouse */
+}
+
+
+/* 6. SECCIÓN DE PROYECTOS */
+#proyectos {
+    max-width: 1100px;
+    margin: 4rem auto;
+}
+
+#proyectos h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+    border-left: 4px solid var(--accent); /* Detalle de color en el título */
+    padding-left: 0.75rem;
+}
+
+/* Grilla responsiva automática */
+.grid-proyectos {
+    display: grid;
+    /* Esto crea columnas de al menos 320px que se acomodan solas según la pantalla */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;                        /* Espacio entre tarjetas */
+}
+
+/* Estilo de cada tarjeta (Card) */
+.proyecto {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;             /* Organiza el contenido de arriba a abajo */
+    justify-content: space-between;     /* Empuja el enlace de GitHub al fondo de la tarjeta */
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto al pasar el cursor sobre la tarjeta */
+.proyecto:hover {
+    transform: translateY(-4px);        /* Se eleva sutilmente */
+    border-color: var(--accent);        /* El borde se ilumina */
+    box-shadow: 0 10px 25px -5px rgba(20, 184, 166, 0.15); /* Resplandor suave */
+}
+
+.proyecto h3 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.proyecto p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+}
+
+/* Etiquetas de tecnologías (Tags) */
+.tags {
+    display: flex;
+    flex-wrap: wrap;                    /* Si no caben en una línea, bajan a la siguiente */
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tags span {
+    font-size: 0.75rem;
+    font-family: monospace;
+    background-color: #0B0F17;
+    color: var(--accent);
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+/* Enlace a GitHub al final de la tarjeta */
+.proyecto a {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+    align-self: flex-start;             /* Alineado a la izquierda */
+    transition: color 0.2s ease;
+}
+
+.proyecto a:hover {
+    color: var(--text-primary);
+    text-decoration: underline;
+}
+
+/* 7. SECCIÓN STACK TECNOLÓGICO */
+#stack {
+    max-width: 1100px;
+    margin: 5rem auto;
+}
+
+#stack h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+    border-left: 4px solid var(--accent);
+    padding-left: 0.75rem;
+}
+
+/* Grilla para las 4 categorías */
+.grid-skills {
+    display: grid;
+    /* En pantallas grandes hace 4 columnas; si no caben, pasa a 2 y luego a 1 */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Cada tarjeta de categoría */
+.skill-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.skill-card:hover {
+    border-color: rgba(20, 184, 166, 0.5); /* Borde teal sutil */
+    transform: translateY(-3px);
+}
+
+.skill-card h3 {
+    font-size: 1.1rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Lista limpia sin viñetas estándar */
+.skill-card ul {
+    list-style: none; /* Quita los puntitos negros feos */
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.skill-card li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Viñeta moderna personalizada (pequeño punto de color teal) */
+.skill-card li::before {
+    content: "•";
+    color: var(--accent);
+    font-size: 1.2rem;
+    line-height: 0;
+}
+
+
+/* 8. SECCIÓN DE CONTACTO */
+#contacto {
+    max-width: 1100px;
+    margin: 5rem auto 4rem auto;
+}
+
+/* Tarjeta centrada con estilo moderno */
+.contacto-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 3.5rem 2rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contacto-card h2 {
+    font-size: 2.2rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.contacto-card p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+}
+
+/* Contenedor flexible para los botones */
+.contacto-botones {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;                    /* Si la pantalla es chica, se acomodan en varias filas */
+    gap: 1rem;
+}
+
+/* Estilo base de los botones */
+.btn {
+    display: inline-block;
+    padding: 0.85rem 1.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Botón principal (Email) destacado en color Teal */
+.btn-primary {
+    background-color: var(--accent);
+    color: #070A0F;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+/* Botones secundarios (LinkedIn / GitHub) con borde sutil */
+.btn-secondary {
+    background-color: #0B0F17;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* 9. PIE DE PÁGINA (FOOTER) */
+footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+
+
+/* 8. SECCIÓN DE CONTACTO */
+#contacto {
+    max-width: 1100px;
+    margin: 5rem auto 4rem auto;
+}
+
+/* Tarjeta centrada con estilo moderno */
+.contacto-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 3.5rem 2rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contacto-card h2 {
+    font-size: 2.2rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.contacto-card p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+}
+
+/* Contenedor flexible para los botones */
+.contacto-botones {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;                    /* Si la pantalla es chica, se acomodan en varias filas */
+    gap: 1rem;
+}
+
+/* Estilo base de los botones */
+.btn {
+    display: inline-block;
+    padding: 0.85rem 1.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Botón principal (Email) destacado en color Teal */
+.btn-primary {
+    background-color: var(--accent);
+    color: #070A0F;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+/* Botones secundarios (LinkedIn / GitHub) con borde sutil */
+.btn-secondary {
+    background-color: #0B0F17;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* 9. PIE DE PÁGINA (FOOTER) */
+footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+
+/* Botones de filtro de proyectos */
+.filtros-proyectos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.filtro-btn {
+    background-color: var(--bg-card);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filtro-btn:hover {
+    color: var(--text-primary);
+    border-color: var(--accent);
+}
+
+/* Estado activo del botón */
+.filtro-btn.activo {
+    background-color: rgba(20, 184, 166, 0.15);
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.hero-botones {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
